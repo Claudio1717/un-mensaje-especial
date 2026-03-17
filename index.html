@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tengo algo para ti</title>
+    <title>Para alguien especial</title>
     <style>
         body { background-color: #ffe6e6; text-align: center; font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
         .contenedor { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-width: 400px; position: relative; width: 85%; }
@@ -19,7 +19,7 @@
 </head>
 <body>
 
-    <div id="musica"></div>
+    <div id="player" style="position: absolute; top: -9999px;"></div>
 
     <div class="contenedor" id="pregunta">
         <div class="corazon">❤</div>
@@ -50,7 +50,10 @@
         function mostrarMensaje() {
             document.getElementById('pregunta').style.display = 'none';
             document.getElementById('regalo').style.display = 'block';
-            document.getElementById('musica').innerHTML = '<iframe width="0" height="0" src="https://www.youtube.com/embed/xnG9lJKPH-I?autoplay=1" frameborder="0" allow="autoplay"></iframe>';
+            
+            // Carga la canción de Maluma al dar clic en SÍ
+            const player = document.getElementById('player');
+            player.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/xnG9lJKPH-I?autoplay=1" frameborder="0" allow="autoplay"></iframe>';
         }
     </script>
 </body>
