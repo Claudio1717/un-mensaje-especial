@@ -6,18 +6,20 @@
     <title>Tengo algo para ti</title>
     <style>
         body { background-color: #ffe6e6; text-align: center; font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
-        .contenedor { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-width: 450px; position: relative; width: 90%; }
-        h1 { color: #ff4d4d; font-size: 24px; line-height: 1.4; }
-        p { color: #333; font-size: 1.1em; line-height: 1.6; }
-        .botones { margin-top: 30px; display: flex; justify-content: center; gap: 20px; }
-        button { padding: 12px 30px; font-size: 18px; border-radius: 10px; border: none; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .contenedor { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-width: 400px; position: relative; width: 85%; }
+        h1 { color: #ff4d4d; font-size: 22px; line-height: 1.4; }
+        p { color: #333; font-size: 1.1em; line-height: 1.5; }
+        .botones { margin-top: 25px; display: flex; justify-content: center; gap: 15px; }
+        button { padding: 12px 25px; font-size: 16px; border-radius: 10px; border: none; cursor: pointer; transition: 0.3s; font-weight: bold; }
         #btnSi { background-color: #ff4d4d; color: white; }
         #btnNo { background-color: #999; color: white; position: absolute; }
         .mensaje-final { display: none; }
-        .corazon { color: #ff4d4d; font-size: 50px; margin-bottom: 10px; }
+        .corazon { color: #ff4d4d; font-size: 40px; margin: 10px 0; }
     </style>
 </head>
 <body>
+
+    <div id="musica"></div>
 
     <div class="contenedor" id="pregunta">
         <div class="corazon">❤</div>
@@ -30,7 +32,7 @@
 
     <div class="contenedor mensaje-final" id="regalo">
         <div class="corazon">❤</div>
-        <h1>¡Sabía que querrías saber! ✨</h1>
+        <h1>¡Sabía que dirías que sí! ✨</h1>
         <p>Nunca olvides que eres la mejor chica de este mundo: hermosa, inteligente, graciosa, un poco loca y con un hermoso corazón.</p>
         <p>Siempre recuerda que serás importante... Bueno, para mí lo eres todo.</p>
         <div class="corazon">❤</div>
@@ -39,7 +41,6 @@
     <script>
         function moverBoton() {
             const btnNo = document.getElementById('btnNo');
-            // Calcula posiciones aleatorias dentro de la pantalla
             const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
             const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
             btnNo.style.left = x + 'px';
@@ -47,9 +48,9 @@
         }
 
         function mostrarMensaje() {
-            // Oculta la pregunta y muestra el mensaje bonito
             document.getElementById('pregunta').style.display = 'none';
             document.getElementById('regalo').style.display = 'block';
+            document.getElementById('musica').innerHTML = '<iframe width="0" height="0" src="https://www.youtube.com/embed/xnG9lJKPH-I?autoplay=1" frameborder="0" allow="autoplay"></iframe>';
         }
     </script>
 </body>
