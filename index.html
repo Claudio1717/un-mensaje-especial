@@ -1,22 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Para alguien especial</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tengo algo para ti</title>
     <style>
-        body { background-color: #ffe6e6; text-align: center; font-family: 'Arial', sans-serif; padding: 50px; }
-        .carta { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; max-width: 500px; }
-        h1 { color: #ff4d4d; }
-        p { font-size: 1.2em; color: #333; line-height: 1.6; }
-        .corazon { color: #ff4d4d; font-size: 50px; }
+        body { background-color: #ffe6e6; text-align: center; font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
+        .contenedor { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-width: 450px; position: relative; width: 90%; }
+        h1 { color: #ff4d4d; font-size: 24px; line-height: 1.4; }
+        p { color: #333; font-size: 1.1em; line-height: 1.6; }
+        .botones { margin-top: 30px; display: flex; justify-content: center; gap: 20px; }
+        button { padding: 12px 30px; font-size: 18px; border-radius: 10px; border: none; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        #btnSi { background-color: #ff4d4d; color: white; }
+        #btnNo { background-color: #999; color: white; position: absolute; }
+        .mensaje-final { display: none; }
+        .corazon { color: #ff4d4d; font-size: 50px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
-    <div class="carta">
+
+    <div class="contenedor" id="pregunta">
         <div class="corazon">❤</div>
-        <h1>¡Hola!Solo quería recordarte algo...</h1>
-        <p>Nunca olvides que eres la mejor chica de este mundo: hermosa, inteligente, graciosa, un poco loca y con un hermoso corazón. Siempre recuerda que serás importante... bueno para mí lo eres.</p>
-        <p>Eres una persona muy especial para mí.</p>
+        <h1>Tengo algo muy especial que decirte... <br> ¿Quieres saber qué es?</h1>
+        <div class="botones">
+            <button id="btnSi" onclick="mostrarMensaje()">¡SÍ!</button>
+            <button id="btnNo" onmouseover="moverBoton()">No</button>
+        </div>
+    </div>
+
+    <div class="contenedor mensaje-final" id="regalo">
+        <div class="corazon">❤</div>
+        <h1>¡Sabía que querrías saber! ✨</h1>
+        <p>Nunca olvides que eres la mejor chica de este mundo: hermosa, inteligente, graciosa, un poco loca y con un hermoso corazón.</p>
+        <p>Siempre recuerda que serás importante... Bueno, para mí lo eres todo.</p>
         <div class="corazon">❤</div>
     </div>
+
+    <script>
+        function moverBoton() {
+            const btnNo = document.getElementById('btnNo');
+            // Calcula posiciones aleatorias dentro de la pantalla
+            const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
+            btnNo.style.left = x + 'px';
+            btnNo.style.top = y + 'px';
+        }
+
+        function mostrarMensaje() {
+            // Oculta la pregunta y muestra el mensaje bonito
+            document.getElementById('pregunta').style.display = 'none';
+            document.getElementById('regalo').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
